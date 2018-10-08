@@ -9,33 +9,35 @@ public:
     Residue(const Residue&);
     Residue& operator=(const Residue&);
     ~Residue();
-
+    
     bool operator == (Residue b) const;
     bool operator < (Residue b) const;
-
+    
     Residue& operator += (Residue b);
     Residue& operator -= (Residue b);
     Residue& operator *= (Residue b);
     Residue& operator *= (ui64 b);
     Residue& operator /= (Residue b);
-
+    
     Residue operator ++(int b);
     Residue& operator ++();
     Residue operator --(int b);
     Residue& operator --();
-
+    
     // обратный по умножению
-    // если P состовное - бросить исключение
+    // если P составное - бросить исключение
     Residue operator ~ () const;
-
+    
     // обратный по сложению
     Residue operator - () const;
-
+    
     // возведение в степень b
     Residue operator ^= (ui64 b) const;
     
     ui64 Mod() const;
 private:
+    ui64 C;
+    ui64 Modu;
 };
 
 Residue operator + (Residue a, Residue b);
@@ -52,3 +54,4 @@ bool operator != (Residue a, Residue b);
 bool operator > (Residue a, Residue b);
 bool operator >= (Residue a, Residue b);
 bool operator <= (Residue a, Residue b);
+int gcdex(int, int, int &, int &);
